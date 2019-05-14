@@ -1,4 +1,4 @@
-package org.xwjava.weixin.repository;
+package org.xwjava.commons.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
