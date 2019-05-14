@@ -9,7 +9,7 @@
   
   <dependencies>
    		 <!--JAXB的API，一般引入spring,JPI相关的依赖，以后都有  -->    
-	    <dependency>
+	     <dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
 		 </dependency>
