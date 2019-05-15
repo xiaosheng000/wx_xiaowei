@@ -1,5 +1,7 @@
 package org.xwjava.weixin.processors.impl;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.xwjava.commons.domain.User;
@@ -43,6 +45,7 @@ public class SubscribeEventMessageProcessor implements EventMessageProcessor {
 				wxUser.setUnsubTime(null);
 			}
 			wxUser.setStatus(User.Status.IS_SUBSCRIBE);
+			wxUser.setSubTime(new Date());
 
 			// 如果有id的值，会自动update；没有id的值会insert
 			this.userRepository.save(wxUser);
