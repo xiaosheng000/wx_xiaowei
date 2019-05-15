@@ -68,7 +68,7 @@ public class SubscribeApplication implements //
 //			LOG.trace(e.getMessage(), e);
 		}
 	}
-
+ 
 	@Bean
 	public ObjectMapper objectMapper() {
 		return new ObjectMapper();

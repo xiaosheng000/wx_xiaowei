@@ -20,6 +20,7 @@ public class SubscribeEventMessageProcessor implements EventMessageProcessor {
 
 	@Override
 	public void onMessage(EventInMessage msg) {
+		 
 		if (!msg.getEvent().equals("subscribe")) {
 			// 非关注事件，不处理
 			return;

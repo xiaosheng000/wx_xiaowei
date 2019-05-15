@@ -1,4 +1,4 @@
-package org.xwjava.weixin.service;
+package org.xwjava.commons.service;
 
 public interface TokenManager {
 

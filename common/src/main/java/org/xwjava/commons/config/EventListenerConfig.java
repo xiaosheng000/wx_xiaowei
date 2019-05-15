@@ -15,6 +15,8 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.Topic;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.xwjava.commons.domain.InMessage;
+import org.xwjava.commons.domain.ResponseMessage;
+import org.xwjava.commons.domain.ResponseToken;
 import org.xwjava.commons.domain.event.EventInMessage;
 import org.xwjava.commons.service.JsonRedisSerializer;
 
@@ -57,15 +59,21 @@ public interface EventListenerConfig extends
 			RedisTemplate<String, InMessage> template = new RedisTemplate<>();
 			template.setConnectionFactory(redisConnectionFactory);
 
-			// 设置一个序列化程序，就可以非常方便自动序列化！
-			// Redis是键值对方式存储数据的，所以其实KeySerializer是把键序列化成可以传输的数据。
-			// 由于泛型的时候已经确定，Key其实是String，所以可以使用系统默认的
-//			template.setKeySerializer(new StringRedisSerializer());
-
 			// 由于不确定是哪个类型，InMessage只是一个父类，它有许多不同的子类。
 			// 因此扩展Jackson2JsonRedisSerializer变得极其重要：重写方法、不要构造参数
 			template.setValueSerializer(new JsonRedisSerializer());
 //			template.setDefaultSerializer(new JsonRedisSerializer());
+
+			return template;
+		}
+			
+		@Bean
+		public default RedisTemplate<String, ResponseToken> tokenRedisTemplate(//
+				@Autowired RedisConnectionFactory redisConnectionFactory
+				) {
+			RedisTemplate<String, ResponseToken> template = new RedisTemplate<>();
+			template.setConnectionFactory(redisConnectionFactory);
+			template.setValueSerializer(new JsonRedisSerializer());
 
 			return template;
 		}
