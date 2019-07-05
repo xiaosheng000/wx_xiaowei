@@ -1,0 +1,23 @@
+spring:
+   datasource:
+ # jdbc:mysql://127.0.0.1:3306/kemao_3 表示找到本机的MySQL服务器中名为kemao_3的数据库
+   # useSSL=false 表示不使用SSL加密
+   # serverTimezone=CST 指定服务器的时区，CST（China Standard Time）
+       url: jdbc:mysql://127.0.0.1:3306/zxw?useSSL=false&serverTimezone=CST&allowPublicKeyRetrieval=true
+       username: zxw
+       password: 252035
+   jpa:
+      # 自动生成数据库的表
+      generate-ddl: true
+      properties:
+         # 设置一个方言，用于自动加上MySQL的引擎 名称，默认MyISAM不支持事务，不推荐使用。
+         hibernate:
+            dialect: org.hibernate.dialect.MySQL57Dialect 
+          
+  #配偶Redis的链接信息 
+   redis:
+       host: 112.74.56.182
+       port: 6379
+       database: 15
+  
+server.port: 8021

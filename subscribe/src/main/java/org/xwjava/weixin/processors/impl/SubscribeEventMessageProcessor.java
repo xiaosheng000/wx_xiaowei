@@ -8,7 +8,7 @@ import org.xwjava.commons.domain.User;
 import org.xwjava.commons.domain.event.EventInMessage;
 import org.xwjava.commons.processors.EventMessageProcessor;
 import org.xwjava.commons.repository.UserRepository;
-import org.xwjava.weixin.service.WeixinProxy;
+import org.xwjava.commons.service.WeixinProxy;
 
 @Service("subscribeMessageProcessor")
 public class SubscribeEventMessageProcessor implements EventMessageProcessor {
